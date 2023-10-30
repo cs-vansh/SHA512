@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate SHA-512 Hash</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #upload-form {
+            width: 400px;
+            margin: 0 auto;
+            border: 2px solid #333;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        #upload-input {
+            margin-bottom: 10px;
+        }
+        #upload-button {
+            background-color: #333;
+            color: #fff;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #upload-button:hover {
+            background-color: #444;
+        }
+        .response {
+            text-align: left;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate SHA-512 Hash</h1>
+    <form id="upload-form" method="POST" enctype="multipart/form-data">
+        <label for="file">Select a file to upload:</label>
+        <input type="file" name="file" id="upload-input" required>
+        <input type="submit" value="Upload and Compute SHA-512" id="upload-button">
+    </form>
+    <div class="response">
+        {% if response %}
+            <p><strong>File Name:</strong> {{ response.file_name }}</p>
+            <p><strong>File Size:</strong> {{ response.file_size }} bytes</p>
+            <p><strong>SHA-512 Hash:</strong> {{ response.hash_value }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
